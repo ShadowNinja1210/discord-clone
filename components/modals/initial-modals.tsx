@@ -55,6 +55,10 @@ export const InitialModal = () => {
     }
   };
 
+  useEffect(() => {
+    console.log("isLoading: ", isLoading);
+  }, []);
+
   if (!isMounted) {
     return null;
   }
@@ -88,7 +92,7 @@ export const InitialModal = () => {
               <FormField
                 control={form.control}
                 name="name"
-                render={({ field, fieldState }) => (
+                render={({ field }) => (
                   <FormItem>
                     <FormLabel className="uppercase text-xs font-bold text-zinc-500 dark:text-secondary/70">
                       Server name
