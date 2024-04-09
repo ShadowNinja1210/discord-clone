@@ -55,10 +55,6 @@ export const InitialModal = () => {
     }
   };
 
-  useEffect(() => {
-    console.log("isLoading: ", isLoading);
-  }, []);
-
   if (!isMounted) {
     return null;
   }
