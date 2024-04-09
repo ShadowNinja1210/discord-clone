@@ -34,6 +34,7 @@ export const CreateChannelModal = () => {
   const params = useParams();
 
   const isModalOpen = isOpen && type === "createChannel";
+  console.log("isModalOpen: ", isModalOpen);
   const { channelType } = data;
 
   const form = useForm({

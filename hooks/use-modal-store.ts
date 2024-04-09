@@ -34,6 +34,9 @@ export const useModal = create<ModalStore>((set) => ({
   type: null,
   data: {},
   isOpen: false,
-  onOpen: (type, data = {}) => set({ isOpen: true, type, data }),
+  onOpen: (type, data = {}) => {
+    console.log("Opening modal", type, data);
+    set({ isOpen: true, type, data });
+  },
   onClose: () => set({ type: null, isOpen: false }),
 }));
