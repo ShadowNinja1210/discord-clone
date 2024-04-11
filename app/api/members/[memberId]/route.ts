@@ -4,7 +4,7 @@ import { NextResponse } from "next/server";
 
 export async function PATCH(req: Request, { params }: { params: { memberId: string } }) {
   try {
-    const profile = await currentProfile;
+    const profile = await currentProfile();
     const { searchParams } = new URL(req.url);
     const { role } = await req.json();
 
