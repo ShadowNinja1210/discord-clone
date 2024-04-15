@@ -27,17 +27,28 @@ export const SocketProvider = ({ children }: { children: React.ReactNode }) => {
       addTrailingSlash: false,
     });
 
-    socketInstance.on("connect", () => {
+    const handleConnect = () => {
+      {
+        console.log("Connected to socket server");
+      }
       setIsConnected(true);
-    });
+    };
 
-    socketInstance.on("disconnect", () => {
+    const handleDisconnect = () => {
+      {
+        console.log("Disconnected to socket server");
+      }
       setIsConnected(false);
-    });
+    };
+
+    socketInstance.on("connect", handleConnect);
+    socketInstance.on("disconnect", handleDisconnect);
 
     setSocket(socketInstance);
 
     return () => {
+      socketInstance.off("connect", handleConnect);
+      socketInstance.off("disconnect", handleDisconnect);
       socketInstance.disconnect();
     };
   }, []);
